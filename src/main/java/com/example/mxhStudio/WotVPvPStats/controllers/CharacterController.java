@@ -2,6 +2,7 @@ package com.example.mxhStudio.WotVPvPStats.controllers;
 
 import com.example.mxhStudio.WotVPvPStats.domain.Character;
 import com.example.mxhStudio.WotVPvPStats.projections.dto.CharacterDTO;
+import com.example.mxhStudio.WotVPvPStats.projections.dto.JobsCharacterDTO;
 import com.example.mxhStudio.WotVPvPStats.services.CharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,5 +27,10 @@ public class CharacterController {
     @GetMapping(value = "/{id}")
     public CharacterDTO findById(@PathVariable Long id){
         return characterService.findById(id);
+    }
+
+    @GetMapping(value = "/{id}/jobs")
+    public JobsCharacterDTO findCharacterJobs(@PathVariable Long id){
+        return characterService.findCharacterJobsById(id);
     }
 }
